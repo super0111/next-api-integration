@@ -3,7 +3,6 @@ import classes from './browseCategory.module.css'
 
 export default function BrowseCategory(props) {
     const { BrowseCategories } = props
-    console.log("browseCategory", BrowseCategories)
     return (
         <div className={classes.browseCategory}>
             <div className={classes.titleField}>

@@ -1,9 +1,9 @@
 import { FaListUl, FaCalendarAlt, FaChevronDown } from "react-icons/fa";
 import classes from './eventsAllConcerts.module.css';
+import Link from 'next/link';
 
 const EventsAllConcerts = (props) => {
     const {eventDates} = props
-    console.log("eventDates", eventDates) 
     return (
         <div className={classes.eventsBody}>
             <div className={classes.concertsHeader}>
@@ -49,13 +49,27 @@ const EventsAllConcerts = (props) => {
                                 <span className={classes.concertComment}>{eventDate.venue}</span>
                             </div>
                             <div className={classes.seeTickets}>
-                                <button className={classes.seeTicketsBtn}>See Tickets</button>
+                                <a
+                                    style={{
+                                        border: "none",
+                                        width: 70,
+                                        padding: "4px 5px",
+                                        borderRadius: 3,
+                                        outline: 'none',
+                                        background: "#DAA49A",
+                                        color: "white",
+                                        fontSize: "12px",
+                                        textDecoration: "none",
+                                    }}
+                                    href={`/events/${eventDate.artistId}/${eventDate.eventId}/${eventDate.date}`}
+                                >
+                                    See Tickets
+                                </a>
                             </div>
                         </div>
                     )) }
                 </div>
                 <div className={classes.loadMore}>
-                    {console.log("eventDates.length", eventDates.length)}
                     { eventDates.length > 10 ? <button className={classes.loadMoreBtn}>Load More</button> : "" }
                 </div>
             </div>

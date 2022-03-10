@@ -5,17 +5,13 @@ import EventsEricChurch from './eventsEricChurch';
 import EventsAllConcerts from './eventsAllConcerts';
 import EventsFans from './eventsFans';
 import { getArtistDetails, getEvent } from '../../../../data';
-// import classes from './index.module.css';
 import { useRouter } from 'next/router';
-// import Link from 'next/link';
-// import EventsList from '../../../../components/events/EventsList';
 import ArtistBio from '../../../../components/artists/ArtistBio';
 import { useQuery } from 'react-query';
-import { getEventDates, getTickets, getFamilyById,getFamily } from '../../../../utils/db';
+import { getEventDates, getTickets, getFamilyById, getFamily } from '../../../../utils/db';
 import { useState } from 'react';
 export default function EventPage(props) {
   const { event, artistDetails, Families } = props;
-
   const router = useRouter();
   const [state, setState] = useState("Events");
   // const eventsPage = !router.asPath.match('#bio');
@@ -41,23 +37,6 @@ export default function EventPage(props) {
       ) }
       <EventsEricChurch />
       <EventsFans Families = { Families } />
-
-
-      {/* <div className={classes.cont}>
-        <div className={classes.title}>
-          <h1>{event.artist.name}</h1>
-          <h2>{event.title}</h2>
-          <div className={classes.nav}>
-            <Link href='#'>Events</Link>
-            <Link href='#bio'>Bio</Link>
-          </div>
-        </div>
-        {eventsPage ? (
-          <EventsList eventDates={data} />
-        ) : (
-          <ArtistBio artistDetails={artistDetails} />
-        )}
-      </div> */}
     </Layout>
   );
 }

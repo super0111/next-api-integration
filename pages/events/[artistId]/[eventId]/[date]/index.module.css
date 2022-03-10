@@ -45,3 +45,24 @@
   border: 10px solid #ffffff;
   border-radius: 10px;
 }
+
+
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(232, 236, 242);
+  padding: 0 4%;
+}
+
+.zimg {
+  padding: 15px 0;
+  margin: auto!important;
+  margin-left: 10%!important;
+}

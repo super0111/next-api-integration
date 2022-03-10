@@ -9,12 +9,8 @@ import Sport from "../components/home/homepage1/sports";
 import ArtsTheater from "../components/home/homepage1/artsTheater";
 import Family from "../components/home/homepage1/family";
 import DiscoverMoreEvent from "../components/home/homepage1/discoverMoreEvents";
-
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import ObjectsList from '../components/common/ObjectsList';
 import { getFeaturedVenues } from '../data';
-import styles from '../styles/Home.module.css';
 import { getFeaturedArtists, getHeaderEvents, getBrowseCategory, getTopSelling, getSport, getArtsTheater, getFamily, getDiscoverMoreEvent, getAmericanExpress } from '../utils/db';
 import { insertLinks } from '../utils/nav';
 
@@ -51,13 +47,6 @@ export default function HomePage(props) {
           <Family Families = { Families } />
           <DiscoverMoreEvent DiscoverMoreEvents = { DiscoverMoreEvents } />
         </Layout>
-
-        <section className={styles.sect}>Featured Artists:</section>
-        <span>Here we have an objects list:</span>
-        <ObjectsList objs={featuredArtists} />
-        <section className={styles.sect}>Featured Venues:</section>
-        <span>Here we have another objects list:</span>
-        <ObjectsList objs={featuredVenues} />
       </main>
     </div>
   );

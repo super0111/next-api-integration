@@ -155,7 +155,7 @@ const artists = [
     featured: true,
     name: 'Christian Nodal',
     currentTour: 'ayayay',
-    smallImage: 'artists/nodal/small.png',
+    smallImage: 'small.png',
     description:
       'Nodal has won three Latin Grammy Awards, a Lo Nuestro Award, two Billboard Latin Music Awards, and a Latin American Music Award.',
   },
@@ -163,7 +163,7 @@ const artists = [
     id: 'maluma',
     featured: true,
     name: 'Maluma',
-    smallImage: 'artists/maluma/small.jpg',
+    smallImage: 'small.jpg',
     description:
       'Maluma has become one of the biggest male superstars in Latin music, filling stadiums around the world.',
   },
@@ -171,7 +171,7 @@ const artists = [
     id: 'angeles',
     featured: true,
     name: 'Los Ángeles Azules',
-    smallImage: 'artists/angeles/small.webp',
+    smallImage: 'small.webp',
     description:
       'Los Ángeles Azules are a Mexican musical group that plays the cumbia sonidera genre.',
   },
@@ -211,6 +211,43 @@ const artistDetails = [
   },
 ];
 
+const lowestLists = [
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 184.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 140.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Sec 201, Row 3", comment: "Resale Ticket", price: 120.00, type: "Mobile Entry" },
+]
+const sectionLists = [
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 190.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 15.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 189.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 5.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 136.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 326.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 361.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 361.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 76.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+  { title: "Setion 1, Row1", comment: "Resale Ticket", price: 36.00, type: "Mobile Entry" },
+]
+
 const tickets = require('./data/tickets.json');
 
 function getAllEvents() {
@@ -237,6 +274,19 @@ function getFamily() {
 function getDiscoverMoreEvent() {
   return discoverMoreEvents;
 }
+function getLowestLists(minState, maxState) {
+  return lowestLists.filter((lowestList) => 
+    lowestList.price >= minState &&
+    lowestList.price < maxState
+  );
+}
+function getSectionLists(minState, maxState) {
+  return sectionLists.filter((sectionList) => 
+    sectionList.price >= minState &&
+    sectionList.price < maxState
+  );
+}
+
 async function getHeaderEvents() {
   return events.filter((event) => event.featured);
 }
@@ -261,8 +311,8 @@ function getAllArtists() {
   return artists;
 }
 
-function getArtist(id) {
-  return artists.find((artist) => artist.id === id);
+function getArtist(artistId) {
+  return artists.find((artist) => artist.id === artistId);
 }
 
 async function getArtistDetails(id) {
@@ -303,6 +353,27 @@ async function getEventDates(artistId, eventId) {
   );
 }
 
+async function getEventDate(artistId, eventId, date) {
+  return eventDates.find(
+    (eventDate) =>
+      eventDate.artistId == artistId && eventDate.eventId == eventId && eventDate.date == date 
+  );
+}
+
+function getVenueSetupByEvent(venueId) {
+  return {
+    maxTickets: 8,
+    zones: [
+      { value: 1, label: 'VIP' },
+      { value: 2, label: 'BARRERA SOMBRA' },
+      { value: 3, label: '1ER TENDIDO SOMBRA' },
+      { value: 4, label: '2DO TENDIDO SOMBRA' },
+      { value: 5, label: 'GENERAL SOMBRA' },
+      { value: 6, label: 'T. ALTO' },
+    ],
+  };
+}
+
 module.exports = {
   getAllEvents,
   getHeaderEvents,
@@ -321,4 +392,8 @@ module.exports = {
   getFeaturedVenues,
   getTickets,
   getEventDates,
+  getEventDate,
+  getVenueSetupByEvent,
+  getLowestLists,
+  getSectionLists,
 };

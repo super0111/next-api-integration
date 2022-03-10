@@ -6,7 +6,7 @@ export default function ArtistBio(props) {
 
   return (
     <div className={classes.cont}>
-      {artistDetails?.bio ? parse(artistDetails.bio) : 'x'}
+      {artistDetails?.bio ? parse(artistDetails.bio) : 'No Bio'}
     </div>
   );
 }
