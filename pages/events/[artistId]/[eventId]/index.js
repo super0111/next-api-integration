@@ -1,17 +1,24 @@
+import Layout from '../../../../modules/layout/Layout';
+import HeaderNav from './Header/headerNav';
+import EventsHeader from './eventsHeader';
+import EventsEricChurch from './eventsEricChurch';
+import EventsAllConcerts from './eventsAllConcerts';
+import EventsFans from './eventsFans';
 import { getArtistDetails, getEvent } from '../../../../data';
-import classes from './index.module.css';
+// import classes from './index.module.css';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import EventsList from '../../../../components/events/EventsList';
+// import Link from 'next/link';
+// import EventsList from '../../../../components/events/EventsList';
 import ArtistBio from '../../../../components/artists/ArtistBio';
 import { useQuery } from 'react-query';
-import { getEventDates, getTickets } from '../../../../utils/db';
-
+import { getEventDates, getTickets, getFamilyById,getFamily } from '../../../../utils/db';
+import { useState } from 'react';
 export default function EventPage(props) {
-  const { event, artistDetails } = props;
+  const { event, artistDetails, Families } = props;
 
   const router = useRouter();
-  const eventsPage = !router.asPath.match('#bio');
+  const [state, setState] = useState("Events");
+  // const eventsPage = !router.asPath.match('#bio');
 
   const { data, isLoading, isError } = useQuery(
     ['eventDates', event.id],
@@ -24,29 +31,43 @@ export default function EventPage(props) {
   if (isError) return <div>Error component should be here</div>;
 
   return (
-    <div className={classes.cont}>
-      <div className={classes.title}>
-        <h1>{event.artist.name}</h1>
-        <h2>{event.title}</h2>
-        <div className={classes.nav}>
-          <Link href='#'>Events</Link>
-          <Link href='#bio'>Bio</Link>
+    <Layout>
+      <HeaderNav />
+      <EventsHeader event = { event } eventDates={data}  state = {state} setState = {setState} />
+      {state == "Events" ? (
+        <EventsAllConcerts eventDates={data} />
+        ) : state == "Reviews" ? "" : (
+          <ArtistBio artistDetails={artistDetails} />
+      ) }
+      <EventsEricChurch />
+      <EventsFans Families = { Families } />
+
+
+      {/* <div className={classes.cont}>
+        <div className={classes.title}>
+          <h1>{event.artist.name}</h1>
+          <h2>{event.title}</h2>
+          <div className={classes.nav}>
+            <Link href='#'>Events</Link>
+            <Link href='#bio'>Bio</Link>
+          </div>
         </div>
-      </div>
-      {eventsPage ? (
-        <EventsList eventDates={data} />
-      ) : (
-        <ArtistBio artistDetails={artistDetails} />
-      )}
-    </div>
+        {eventsPage ? (
+          <EventsList eventDates={data} />
+        ) : (
+          <ArtistBio artistDetails={artistDetails} />
+        )}
+      </div> */}
+    </Layout>
   );
 }
 
 export async function getServerSideProps(ctx) {
   const { artistId, eventId } = ctx.query;
+  const Families = await getFamily();
   const event = await getEvent(artistId, eventId);
   const artistDetails = (await getArtistDetails(artistId)) || null;
   return {
-    props: { event, artistDetails },
+    props: { event, artistDetails, Families },
   };
 }

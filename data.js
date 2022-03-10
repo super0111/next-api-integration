@@ -2,11 +2,12 @@ const events = [
   {
     id: 'ayayay',
     featured: true,
-    title: 'Monstersdf Jam is Coming!',
+    title: 'Monster Jam is Coming!',
     text: "Don't Miss Out Seeing Your Favorite Monster Jam trucks in your Town!",
     artist: { id: 'nodal', name: 'Christian Nodal' },
     priceRange: { min: 10, max: 2000 },
     bigImage: '/images/Homepage1/Group 89.png',
+    rate: '4.7',
   },
   {
     id: 'papi',
@@ -16,6 +17,7 @@ const events = [
     artist: { id: 'maluma', name: 'Maluma' },
     bigImage: '/images/Group 132.png',
     bigImageHasTitle: true,
+    rate: '5',
   },
   {
     id: '40años',
@@ -25,6 +27,7 @@ const events = [
     artist: { id: 'angeles', name: 'Los Ángeles Azules' },
     bigImage: '/images/Group 133.png',
     bigImageHasTitle: true,
+    rate: '5'
   },
 ];
 const americanExpresses = [
@@ -69,14 +72,14 @@ const artsTheaters = [
   { title: "Bill Burr", text: "The world is a confusing place, but there&apos;s one resounding truth", events: "12", star: "4", url: "/images/Homepage1/Group 123.png"  },
 ];
 const families = [
-  { title: "Disney On Ice presents Dream Big", text: "In today&apos;s faddish, fractured rock landscape, it&apos;s refreshing that classic", events: "12", star: "5", url: "/images/Homepage1/Group 124.png"  },
-    { title: "PBR: Unleash the Beast", text: "What happens in Vegas doesnot always stay in Vegas, and Imagine Dragons", events: "21", star: "3", url: "/images/Homepage1/Group 125.png"  },
-    { title: "Dude Perfect", text: "It&apos;s undeniable that Bad Bunny is one of the hottest Latin trap stars of our time", events: "4", star: "4", url: "/images/Homepage1/Group 126.png"  },
-    { title: "World&apos;s Toughest Rodeo", text: "The world is a confusing place, but there&apos;s one resounding truth", events: "12", star: "1", url: "/images/Homepage1/Group 127.png"  },
-    { title: "Disney On Ice presents Dream Big", text: "It&apos;s undeniable that Bad Bunny is one of the hottest Latin trap stars of our time", events: "14", star: "3", url: "/images/Homepage1/Group 128.png"  },
-    { title: "World&apos;s Tougest Rodeo", text: "Coldplay is one of the best-loved British rock bands in the world, with numerous", events: "15", star: "4", url: "/images/Homepage1/Group 129.png"  },
-    { title: "Disney On Ice presents Mickey and Friends", text: "In today&apos;s faddish, fractured rock landscape, it&apos;s refreshing that classic", events: "16", star: "5", url: "/images/Homepage1/Group 130.png"  },
-    { title: "World&apos;s toughest Rodeo", text: "The world is a confusing place, but there&apos;s one resounding truth", events: "17", star: "5", url: "/images/Homepage1/Group 127.png"  },
+  { artist: { id: 'nodal', name: 'Christian Nodal' }, title: "Disney On Ice presents Dream Big", text: "In today&apos;s faddish, fractured rock landscape, it&apos;s refreshing that classic", events: "12", star: "5", url: "/images/Homepage1/Group 124.png"  },
+  { artist: { id: 'maluma', name: 'Maluma' }, title: "PBR: Unleash the Beast", text: "What happens in Vegas doesnot always stay in Vegas, and Imagine Dragons", events: "21", star: "3", url: "/images/Homepage1/Group 125.png"  },
+  { artist: { id: 'angeles', name: 'Los Ángeles Azules' }, title: "Dude Perfect", text: "It&apos;s undeniable that Bad Bunny is one of the hottest Latin trap stars of our time", events: "4", star: "4", url: "/images/Homepage1/Group 126.png"  },
+  { artist: { id: 'nodal', name: 'Christian Nodal' }, title: "World&apos;s Toughest Rodeo", text: "The world is a confusing place, but there&apos;s one resounding truth", events: "12", star: "1", url: "/images/Homepage1/Group 127.png"  },
+  { artist: { id: 'nodal', name: 'Christian Nodal' }, title: "Disney On Ice presents Dream Big", text: "It&apos;s undeniable that Bad Bunny is one of the hottest Latin trap stars of our time", events: "14", star: "3", url: "/images/Homepage1/Group 128.png"  },
+  { artist: { id: 'nodal', name: 'Christian Nodal' }, title: "World&apos;s Tougest Rodeo", text: "Coldplay is one of the best-loved British rock bands in the world, with numerous", events: "15", star: "4", url: "/images/Homepage1/Group 129.png"  },
+  { artist: { id: 'nodal', name: 'Christian Nodal' }, title: "Disney On Ice presents Mickey and Friends", text: "In today&apos;s faddish, fractured rock landscape, it&apos;s refreshing that classic", events: "16", star: "5", url: "/images/Homepage1/Group 130.png"  },
+  { artist: { id: 'nodal', name: 'Christian Nodal' }, title: "World&apos;s toughest Rodeo", text: "The world is a confusing place, but there&apos;s one resounding truth", events: "17", star: "5", url: "/images/Homepage1/Group 127.png"  },
 ];
 const discoverMoreEvents = [
   { title: "NFL", text: "Explore NFL ticket options from te Official Ticket Exchange of the NFL", url: "/images/Homepage1/Rectangle 36.png"  },
@@ -89,7 +92,7 @@ const discoverMoreEvents = [
 ];
 const eventDates = [
   {
-    artistId: 'nodal',
+    artistId: 'maluma',
     eventId: 'ayayay',
     date: 'Mar 18',
     city: ' Ciudad Juárez, Mexico',
@@ -110,15 +113,15 @@ const eventDates = [
     venue: 'Estadio Atanasio Girardot',
   },
   {
-    artistId: 'nodal',
-    eventId: 'ayayay',
+    artistId: '40años',
+    eventId: 'angeles',
     date: 'Apr 3',
     city: ' Manta, Ecuador',
     venue: 'Estadio Jocay',
   },
   {
-    artistId: 'nodal',
-    eventId: 'ayayay',
+    artistId: 'maluma',
+    eventId: 'papi',
     date: 'Apr 30',
     city: ' Tijuana, Mexico',
     venue: 'Estadio Caliente',
@@ -198,6 +201,14 @@ const artistDetails = [
     artistId: 'nodal',
     bio: '<b>Christian Nodal</b> is the most important youth soloist of the Mexican Regional genre, with only 19 years of age, he has managed to place 5 singles in the first place of the specialized charts for several weeks “No Te Contaron Mal”, “ Me Deje Llevar”, “Adios Amor”, “Te Fallé”, “Eres”", and on Youtube, he has more than a trillion visits, on Spotify more than 3.7 million listeners per month.  Multi-awarded in Mexico and the United States, the only Mexican regional artist in the 21st 21, with 3 awards on Billboard, 2 on iHeartradio, a Latin Grammy to name a few, is a singer who has broken the schemes of this competitive and difficult genre. Proving that to achieve success, age does not matter, it matters the talent, discipline, dedication to 100% and a great team.<p>After his already successful tour in Mexico and the USA, "DE TU MANO TOUR", he is starting 2019 with his "Ahora" tour, where besides his traditional Mariacheño, he will present several surprises that will surely please his fans.</p>',
   },
+  {
+    artistId: 'maluma',
+    bio: '<b>Maluma </b> is the most important youth soloist of the Mexican Regional genre, with only 19 years of age, he has managed to place 5 singles in the first place of the specialized charts for several weeks “No Te Contaron Mal”, “ Me Deje Llevar”, “Adios Amor”, “Te Fallé”, “Eres”", and on Youtube, he has more than a trillion visits, on Spotify more than 3.7 million listeners per month.  Multi-awarded in Mexico and the United States, the only Mexican regional artist in the 21st 21, with 3 awards on Billboard, 2 on iHeartradio, a Latin Grammy to name a few, is a singer who has broken the schemes of this competitive and difficult genre. Proving that to achieve success, age does not matter, it matters the talent, discipline, dedication to 100% and a great team.<p>After his already successful tour in Mexico and the USA, "DE TU MANO TOUR", he is starting 2019 with his "Ahora" tour, where besides his traditional Mariacheño, he will present several surprises that will surely please his fans.</p>',
+  },
+  {
+    artistId: 'angeles',
+    bio: '<b>Angeles </b> is the most important youth soloist of the Mexican Regional genre, with only 19 years of age, he has managed to place 5 singles in the first place of the specialized charts for several weeks “No Te Contaron Mal”, “ Me Deje Llevar”, “Adios Amor”, “Te Fallé”, “Eres”", and on Youtube, he has more than a trillion visits, on Spotify more than 3.7 million listeners per month.  Multi-awarded in Mexico and the United States, the only Mexican regional artist in the 21st 21, with 3 awards on Billboard, 2 on iHeartradio, a Latin Grammy to name a few, is a singer who has broken the schemes of this competitive and difficult genre. Proving that to achieve success, age does not matter, it matters the talent, discipline, dedication to 100% and a great team.<p>After his already successful tour in Mexico and the USA, "DE TU MANO TOUR", he is starting 2019 with his "Ahora" tour, where besides his traditional Mariacheño, he will present several surprises that will surely please his fans.</p>',
+  },
 ];
 
 const tickets = require('./data/tickets.json');
@@ -228,6 +239,12 @@ function getDiscoverMoreEvent() {
 }
 async function getHeaderEvents() {
   return events.filter((event) => event.featured);
+}
+
+function getFamilyById(artistId) {
+  return families.find(
+    (family) => family.artist.id == artistId
+  );
 }
 
 async function getEvent(artistId, eventId) {
@@ -295,6 +312,7 @@ module.exports = {
   getSport,
   getArtsTheater,
   getFamily,
+  getFamilyById,
   getDiscoverMoreEvent,
   getEvent,
   getFeaturedArtists,
