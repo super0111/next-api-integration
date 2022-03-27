@@ -13,7 +13,7 @@ const sections1 = [
     { title: 'More', url: '#' },
   ];
 const sections2 = [
-    { title: 'Sign In', url: '#'},
+    { title: 'Sign In', url: '/signIn'},
     { title: 'Sell', url: '#' },
     { title: 'Git Cards', url: '#' },
     { title: 'Help', url: '#' },
